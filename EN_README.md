@@ -24,7 +24,7 @@ This program can help you check the health of your keyboard in the following way
 3. Press the keyboard key you want to test. The key content and number of times you are currently pressing should appear in the window.
 4. If the test is completed and you wanna close the program, just press the close button in the upper right corner.
 
-## Known Issues in Vx.x（Vx.x 已知問題）
+## Known Issues in V1.0（V1.0 已知問題）
 1. On macOS, there are issues with the mapping and display of some keys signal, which are expected to be fixed in the future.
 
 ## Future Features（未來功能）
