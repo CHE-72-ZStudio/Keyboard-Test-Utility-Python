@@ -31,7 +31,5 @@ This program can help you check the health of your keyboard in the following way
 1. Add function to output key press records (.log)
 
 ### Keyboard Test Utility Ver1.0 / 鍵盤檢測工具程式 Ver1.0
-
-### Copyright (C) 2024-present CHE_72 ZStudio
-
-### Copyright (C) 2022-2023 CHE72
+### Copyright (C) 2024-present CHE_72 ZStudio.
+### Copyright (C) 2022-2023 CHE72.
