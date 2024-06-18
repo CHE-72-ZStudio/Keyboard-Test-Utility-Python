@@ -1,6 +1,6 @@
 # 「鍵盤檢測工具程式」（使用 Python）
 ## Keyboard Test Utility (Python)
-### English Version Readme is here : [https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/main/EN_README.md]
+### English Version Readme is here : [https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/V1.0-Stable/EN_README.md]
 
 ## 程式介紹 (Description)
 本程式可以協助您判斷您鍵盤的健康情形，具體方式如下： 
