@@ -2,7 +2,7 @@
 
 ## 「鍵盤檢測工具程式」（使用 Python）
 
-### 中文版本 讀我 在這裡 : [https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/main/README.md]
+### 中文版本 讀我 在這裡 : [https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/V1.0-Stable/README.md]
 
 ## Description（程式介紹）
 
