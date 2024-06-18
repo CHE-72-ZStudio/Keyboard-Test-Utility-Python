@@ -2,7 +2,7 @@
 
 ## 「鍵盤檢測工具程式」（使用 Python）
 
-### 中文版本 讀我 在這裡 : [https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/main/README.md]
+### 中文版本 讀我 在這裡 : [https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/V1.0-Stable/README.md]
 
 ## Description（程式介紹）
 
@@ -24,14 +24,12 @@ This program can help you check the health of your keyboard in the following way
 3. Press the keyboard key you want to test. The key content and number of times you are currently pressing should appear in the window.
 4. If the test is completed and you wanna close the program, just press the close button in the upper right corner.
 
-## Known Issues in Vx.x（Vx.x 已知問題）
+## Known Issues in V1.0（V1.0 已知問題）
 1. On macOS, there are issues with the mapping and display of some keys signal, which are expected to be fixed in the future.
 
 ## Future Features（未來功能）
 1. Add function to output key press records (.log)
 
 ### Keyboard Test Utility Ver1.0 / 鍵盤檢測工具程式 Ver1.0
-
-### Copyright (C) 2024-present CHE_72 ZStudio
-
-### Copyright (C) 2022-2023 CHE72
+### Copyright (C) 2024-present CHE_72 ZStudio.
+### Copyright (C) 2022-2023 CHE72.
