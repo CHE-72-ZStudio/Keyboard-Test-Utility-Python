@@ -117,12 +117,26 @@ while running:  # 無窮迴圈
                     key_text = "< VOL_DOWN >"  # 多媒體鍵的 音量減小 鍵
                 elif event.key == 1073741952:
                     key_text = "< VOL_UP >"  # 多媒體鍵的 音量增大 鍵
-                elif event.key == 1073742083:
-                    key_text = "< MEDIA_PREV_TRACK >"  # 多媒體鍵的 上一首 鍵
-                elif event.key == 1073742085:
-                    key_text = "< MEDIA_PLAY/PAUSE >"  # 多媒體鍵的 播放/暫停 鍵
                 elif event.key == 1073742082:
                     key_text = "< MEDIA_NEXT_TRACK >"  # 多媒體鍵的 下一首 鍵
+                elif event.key == 1073742083:
+                    key_text = "< MEDIA_PREV_TRACK >"  # 多媒體鍵的 上一首 鍵
+                elif event.key == 1073742084:
+                    key_text = "< MEDIA_STOP >"  # 多媒體鍵的 停止 鍵
+                elif event.key == 1073742085:
+                    key_text = "< MEDIA_PLAY/PAUSE >"  # 多媒體鍵的 播放/暫停 鍵
+                elif event.key == 1073742087:
+                    key_text = "< OPEN_MEDIA_PLAYER >"  # 開啟 多媒體播放軟體
+                elif event.key == 1073742089:
+                    key_text = "< OPEN_E-MAIL >"  # 開啟 電子郵件軟體
+                elif event.key == 1073742092:
+                    key_text = "< OPEN_SEARCH >"  # 開啟 搜尋輸入框
+                elif event.key == 1073742093:
+                    key_text = "< OPEN_INTERNET_BROWSER >"  # 開啟 網路瀏覽器軟體
+                elif event.key == 1073742107:
+                    key_text = "< OPEN_EXPLORER/THIS PC >"  # 開啟 檔案總管/本機
+                elif event.key == 1073742108:
+                    key_text = "< OPEN_CALCULATOR >"  # 開啟 小算盤軟體
                 elif 97 <= event.key <= 122:
                     key_text = "< {} >".format(chr(event.key - 32))  # 這些按鍵是英文按鍵
                 elif (44 <= event.key <= 57) or (91 <= event.key <= 93) or (event.key == 39 or 59 or 61):
