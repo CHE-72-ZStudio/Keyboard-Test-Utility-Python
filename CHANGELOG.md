@@ -1,9 +1,12 @@
 # 「鍵盤檢測工具程式（Python）」的變更日誌
 ## Change Log for Keyboard Test Utility (Python)
 
-## UNRELEASED ~~V1.0.11 (2025-MM-DD)~~
+## UNRELEASED ~~V1.1.7 (2025-MM-DD)~~
 ### 新增功能 Added
-- 新增對於 多媒體停止、多媒體播放軟體、電子郵件軟體、搜尋輸入框、檔案總管/本機、小算盤軟體、網路瀏覽器軟體 按鍵讀取偵測的支援
+- 新增 多媒體停止、多媒體播放軟體、電子郵件軟體、搜尋輸入框、檔案總管/本機、小算盤軟體、網路瀏覽器軟體 按鍵讀取偵測的支援
+- 新增在程式結束時，會在 CLI 介面輸出版權宣告與開源協議的功能
+### 提升進步 Improved  
+- 優化視窗標題列的內容文字，現在會顯示完整的程式版本號與作者訊息
 ### 文檔更新 Edited
 - 修改 `README.md` 中的描述說明，使其更為完整清晰
 - 新增 `CHANGELOG.md`、`USER.md`、`DEVELOPER.md`，讓整體專案更為清晰易用
@@ -12,10 +15,10 @@
 ### 貢獻清單 Contributor
 - [![CHE72](https://img.shields.io/badge/CHE72-181717.svg?logo=github&logoColor=white)](https://github.com/CHE72): 專案發起人／項目**唯一**貢獻者／項目**唯一**維護者
 
-## V1.0.6 (2024-01-19)
+## V1.0.6 (2024-01-19) 首次正式版本發佈
 ### 首次正式版本發佈 First Release
-- 使用 `pygame` 顯示結果視窗與讀取鍵盤按鍵輸入
-- 具備基礎的鍵盤按鍵檢測與按壓次數功能
+- 使用 `pygame` 模組進行顯示結果視窗與讀取鍵盤按鍵輸入
+- 具備基礎的鍵盤按鍵檢測與按壓次數計算功能
 ### 貢獻清單 Contributor
 - [![CHE72](https://img.shields.io/badge/CHE72-181717.svg?logo=github&logoColor=white)](https://github.com/CHE72): 專案發起人／項目**唯一**貢獻者／項目**唯一**維護者
 
