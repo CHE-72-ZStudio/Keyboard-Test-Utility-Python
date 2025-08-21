@@ -11,7 +11,7 @@ Main.py
 
 import pygame  # 載入pygame模組
 import sys
-import time
+import datetime
 
 from Studio import *
 
@@ -25,15 +25,15 @@ def update_display():  # 定義更新畫面的函式
     screen.blit(background, (0, 0))  # 在繪圖視窗繪製畫布
     pygame.display.update()  # 更新繪圖視窗
 
-
-def record(id, name):  # TODO: complete this function with time, key_id and key_name
+def record(count, id, name):
     # 嘗試開啟 KTUP_Records.log 為 file 句柄後，將 時間戳記、計算結果、程式版本、分隔符號 寫入檔案中，方便使用者日後查詢
     try:
-        # 由 Gemini Code Assist 提供可以在時間戳記的缺位中自動補 0 的方法
+        # 由 Gemini Code Assist 建議使用 datetime.datetime.now() 取代 time.localtime()，以便取得毫秒的方法
+        # 參考來源：https://docs.python.org/zh-cn/3.13/library/datetime.html
         with open("KTUP_Records.log", "a+", encoding="UTF-8") as file:
-            stamp = time.localtime()
-            # TODO: add milli second support in output result
-            file.write("{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}\t".format(stamp.tm_year, stamp.tm_mon, stamp.tm_mday, stamp.tm_hour, stamp.tm_min, stamp.tm_sec))
+            stamp = datetime.datetime.now()
+            file.write("{:03d}.\t".format(count))
+            file.write(stamp.strftime("%Y-%m-%d %H:%M:%S") + ".{:03d}\t".format(stamp.microsecond // 1000))
             file.write("{}: ({})\n".format(name, id))
     # TODO 增加磁碟空間已滿，無法寫入的專用 except 提示
     except PermissionError:  # 如果文件系統的存取權限不足
@@ -184,7 +184,7 @@ if __name__ == "__main__":
                     key_text = "< UNKNOWN : {} >".format(event.key)  # 輸出：未知的按鍵
                 finally:  # 無論是否為例外事件
                     numbers = numbers + 1  # 計數器 + 1
-                    record(event.key, key_text)  # TODO: write some comments here
+                    record(numbers, event.key, key_text)  # TODO: write some comments here
             if event.type == pygame.QUIT:  # 如果使用者按關閉鈕
                 running = False  # 設定當前迴圈運行狀態為停止
             if numbers != 0:  # 如果計數器不為0
