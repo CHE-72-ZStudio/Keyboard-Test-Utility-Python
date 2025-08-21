@@ -181,12 +181,24 @@ if __name__ == "__main__":
         update_display()  # 使用更新畫面的函式
     pygame.quit()  # 關閉視窗
 
-    # TODO: write file footer here
-
-    print()
-    print("「{}」Ver{}，著作權所有 (C) 2025-現在 CHE_72 ZStudio".format(program_zh, version))
-    print("{} Ver{} , Copyright (C) 2025-present CHE_72 ZStudio".format(program_en, version))
-    print(Studio_ZH)  # Studio.py 中的中文版工作室宣告
+    # 嘗試開啟 KTUP_Records.log 為 file 句柄後，將 時間戳記、計算結果、程式版本、分隔符號 寫入檔案中，方便使用者日後查詢
+    try:
+        # 由 Gemini Code Assist 提供可以在時間戳記的缺位中自動補 0 的方法
+        with open("KTUP_Records.log", "a+", encoding="UTF-8") as file:
+            file.write("「{}」Ver{}\n".format(program_zh, version))
+            file.write("{}\n".format("=" * 36))
+    # TODO 增加磁碟空間已滿，無法寫入的專用 except 提示
+    except PermissionError:  # 如果文件系統的存取權限不足
+        print("\n\033[38;5;197m因為程式對於文件系統的存取權限不足，無法將結果寫入至檔案內\033[0m\a")  # 輸出檔案權限不足訊息與通知聲音
+    except Exception:
+        print("\n\033[38;5;197m程式遇到不明原因的錯誤，無法將結果寫入至檔案內\033[0m\a")  # 輸出檔案無法寫入訊息與通知聲音
+    else:
+        print("\n\033[38;5;47m成功將計算結果寫入至 \"KTUP_Records.log\"，可於日後開啟該檔案檢視結果\033[0m")  # 輸出檔案成功寫入訊息
+    finally:
+        print()
+        print("「{}」Ver{}，著作權所有 (C) 2025-現在 CHE_72 ZStudio".format(program_zh, version))
+        print("{} Ver{} , Copyright (C) 2025-present CHE_72 ZStudio".format(program_en, version))
+        print(Studio_ZH)  # Studio.py 中的中文版工作室宣告
 else:  # 如果使用者誤將本程式作為模組引用
     print("\033[38;5;197m本程式為「鍵盤檢測工具程式」的主入口\n請直接運行 Main.py，而非透過其他模組引入本程式\033[0m\a\n")  # 輸出提示訊息提醒使用者正確使用方式
     sys.exit(1)  # 呼叫系統結束本程式運行，原因為"Operation not permitted"
