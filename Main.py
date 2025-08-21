@@ -11,6 +11,7 @@ Main.py
 
 import pygame  # 載入pygame模組
 import sys
+import time
 
 from Studio import *
 
@@ -26,7 +27,21 @@ def update_display():  # 定義更新畫面的函式
 
 
 def record(id, name):  # TODO: complete this function with time, key_id and key_name
-    pass
+    # 嘗試開啟 KTUP_Records.log 為 file 句柄後，將 時間戳記、計算結果、程式版本、分隔符號 寫入檔案中，方便使用者日後查詢
+    try:
+        # 由 Gemini Code Assist 提供可以在時間戳記的缺位中自動補 0 的方法
+        with open("KTUP_Records.log", "a+", encoding="UTF-8") as file:
+            stamp = time.localtime()
+            # TODO: add milli second support in output result
+            file.write("{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}\t".format(stamp.tm_year, stamp.tm_mon, stamp.tm_mday, stamp.tm_hour, stamp.tm_min, stamp.tm_sec))
+            file.write("{}: ({})\n".format(name, id))
+    # TODO 增加磁碟空間已滿，無法寫入的專用 except 提示
+    except PermissionError:  # 如果文件系統的存取權限不足
+        print("\033[38;5;197m因為程式對於文件系統的存取權限不足，無法將結果寫入至檔案內\033[0m\a")  # 輸出檔案權限不足訊息與通知聲音
+    except Exception:
+        print("\033[38;5;197m程式遇到不明原因的錯誤，無法將結果寫入至檔案內\033[0m\a")  # 輸出檔案無法寫入訊息與通知聲音
+    else:
+        print("\033[38;5;47m成功將計算結果寫入至 \"KTUP_Records.log\"，可於日後開啟該檔案檢視結果\033[0m")  # 輸出檔案成功寫入訊息
 
 
 if __name__ == "__main__":
@@ -193,7 +208,7 @@ if __name__ == "__main__":
     except Exception:
         print("\n\033[38;5;197m程式遇到不明原因的錯誤，無法將結果寫入至檔案內\033[0m\a")  # 輸出檔案無法寫入訊息與通知聲音
     else:
-        print("\n\033[38;5;47m成功將計算結果寫入至 \"KTUP_Records.log\"，可於日後開啟該檔案檢視結果\033[0m")  # 輸出檔案成功寫入訊息
+        print("\n\033[38;5;47m成功將程式資訊寫入至 \"KTUP_Records.log\"，可於日後開啟該檔案檢視結果\033[0m")  # 輸出檔案成功寫入訊息
     finally:
         print()
         print("「{}」Ver{}，著作權所有 (C) 2025-現在 CHE_72 ZStudio".format(program_zh, version))
