@@ -1,14 +1,18 @@
 """
 Main.py
 此模組為「鍵盤檢測工具程式」的唯一入口
+
+* update_display：
+* record：
 """
+
+# TODO: rename variables
+# TODO: update comments
 
 import pygame  # 載入pygame模組
 import sys
 
 from Studio import *
-
-pygame.init()  # 啟動pygame
 
 
 def update_display():  # 定義更新畫面的函式
@@ -20,21 +24,28 @@ def update_display():  # 定義更新畫面的函式
     screen.blit(background, (0, 0))  # 在繪圖視窗繪製畫布
     pygame.display.update()  # 更新繪圖視窗
 
+
+def record(id, name):  # TODO: complete this function with time, key_id and key_name
+    pass
+
+
 if __name__ == "__main__":
     # 定義 中／英 程式名稱、程式版本號，如果日後有需要更新時，更改此處即可避免缺失遺漏
     program_zh = "鍵盤檢測工具程式（Python）"
     program_en = "Keyboard Test Utility (Python)"
-    version = "1.0.6"
+    version = "1.1.7"
 
-    screen = pygame.display.set_mode((1600, 900))  # 建立繪圖視窗（寬1600，高900）
-    pygame.display.set_caption("鍵盤檢測工具程式 Ver1.0 Made by CHE_72 ZStudio")  # 設定視窗的標題
+    pygame.init()  # 啟動pygame
+    screen = pygame.display.set_mode((1600, 900))  # 建立繪圖視窗（寬1600，高900）  # TODO: 是否可以讀取系統的解析度以決定視窗大小？
+    pygame.display.set_caption("「{}」Ver{}，著作權所有 (C) 2025-現在 CHE_72 ZStudio".format(program_zh, version))  # 設定視窗的標題
     background = pygame.Surface(screen.get_size())  # 建立畫布
     background = background.convert()
     background.fill((31, 31, 31))  # 設定畫布顏色(31, 31, 31)
     default_font = pygame.font.Font("NotoSansRegular.otf", 54)  # 設定預設文字字型及大小
     key_font = pygame.font.Font("NotoSansRegular.otf", 100)  # 設定鍵盤顯示文字字型及大小
-    instruction_text1 = default_font.render("歡迎使用 鍵盤檢測工具程式 Ver1.0 Made by CHE_72 ZStudio，", True, (191, 191, 191))  # 設定左上角第一行的文字內容
-    instruction_text2 = default_font.render("按下鍵盤上的任意按鍵即可開始檢測。", True, (191, 191, 191))  # 設定左上角第二行的文字內容
+    # TODO: split instruction_text1 to 2 lines
+    instruction_text1 = default_font.render("歡迎您使用「{}」Ver{}，本程式由 CHE_72 ZStudio 製作".format(program_zh, version), True, (191, 191, 191))  # 設定左上角第一行的文字內容
+    instruction_text2 = default_font.render("按下鍵盤上的任意按鍵即可開始檢測", True, (191, 191, 191))  # 設定左上角第二行的文字內容
     instruction_text3 = default_font.render("程式尚未收到您按下任何按鍵的訊號！", True, (191, 191, 191))  # 設定左上角第三行的文字內容
     numbers = 0  # 設定按鍵次數計數器
     numbers_text = ("目前已按下鍵盤 {} 次".format(numbers))  # 設定計數器的顯示文字內容
@@ -49,7 +60,7 @@ if __name__ == "__main__":
         clock.tick(120)  # 每秒執行120次
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:  # 如果鍵盤按鍵被按下
-                try:
+                try:  # TODO: use match/case or dict() here?
                     if event.key == 8:
                         key_text = "< BACKSPACE >"
                     elif event.key == 9:
@@ -158,6 +169,7 @@ if __name__ == "__main__":
                     key_text = "< UNKNOWN : {} >".format(event.key)  # 輸出：未知的按鍵
                 finally:  # 無論是否為例外事件
                     numbers = numbers + 1  # 計數器 + 1
+                    record(event.key, key_text)  # TODO: write some comments here
             if event.type == pygame.QUIT:  # 如果使用者按關閉鈕
                 running = False  # 設定當前迴圈運行狀態為停止
             if numbers != 0:  # 如果計數器不為0
@@ -168,6 +180,13 @@ if __name__ == "__main__":
         background.fill((31, 31, 31))  # 重新填充畫布
         update_display()  # 使用更新畫面的函式
     pygame.quit()  # 關閉視窗
+
+    # TODO: write file footer here
+
+    print()
+    print("「{}」Ver{}，著作權所有 (C) 2025-現在 CHE_72 ZStudio".format(program_zh, version))
+    print("{} Ver{} , Copyright (C) 2025-present CHE_72 ZStudio".format(program_en, version))
+    print(Studio_ZH)  # Studio.py 中的中文版工作室宣告
 else:  # 如果使用者誤將本程式作為模組引用
     print("\033[38;5;197m本程式為「鍵盤檢測工具程式」的主入口\n請直接運行 Main.py，而非透過其他模組引入本程式\033[0m\a\n")  # 輸出提示訊息提醒使用者正確使用方式
-    sys.exit(1)  # 呼叫系統正常結束本程式運行
+    sys.exit(1)  # 呼叫系統結束本程式運行，原因為"Operation not permitted"
