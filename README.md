@@ -38,13 +38,23 @@
 4. 如果測試完成，要關閉本程序，只需按下右上角的關閉按鈕即可
 > 詳細的 用戶手冊可以參考 [USER.md](https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/main/USER.md) 文件；開發手冊可以參考 [DEVELOPER.md](https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/main/DEVELOPER.md) 文件
 
-## V1.0.6 更新日誌 (Changes in V1.0.6)
-* 首次正式版本發佈 First Release
-    - 使用 `pygame` 顯示結果視窗與讀取鍵盤按鍵輸入
-    - 具備基礎的鍵盤按鍵檢測與按壓次數功能
+## V1.1.8 更新日誌 (Changes in V1.1.8)
+* 新增功能 Added
+    - 新增可以將鍵盤按鍵按壓紀錄儲存至 `KTUP_Records.log` 日誌檔案的功能，內容包含 日期、時間、按鍵名稱與累積按壓次數  
+    - 新增 多媒體停止、多媒體播放軟體、電子郵件軟體、搜尋輸入框、檔案總管/本機、小算盤軟體、網路瀏覽器軟體 按鍵讀取偵測的支援  
+    - 新增在程式結束時，會在 CLI 介面輸出版權宣告與開源協議的功能  
+* 提升進步 Improved  
+    - 優化視窗標題列的內容文字，現在會顯示完整的程式版本號與作者訊息  
+* 文檔更新 Edited
+    - 修改 `README.md` 中的描述說明，使其更為完整清晰  
+    - 新增 `CHANGELOG.md`、`USER.md`、`DEVELOPER.md`，讓整體專案更為清晰易用  
+    - 新增 `Requirements.txt`，方便開發者快速安裝此程式的必備模組  
+    - `LICENSE` 中的開源協議從 `GNU General Public License Version 2` 更改為 `GNU General Public License Version 3`  
+* 已經移除 Removed
+    - 移除 `EN_README.md`，如果需要英文說明，可以參考 Devin AI 的 Wiki 文檔生成功能 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python)  
 > 所有更新紀錄可參閱 [CHANGELOG.md](https://github.com/CHE-72-ZStudio/Keyboard-Test-Utility-Python/blob/main/CHANGELOG.md) 文件  
 
-## V1.0.6 已知問題 (Known Issues in V1.0.6)
+## V1.1.8 已知問題 (Known Issues in V1.1.8)
 | 問題編號 (Issues Num) | 錯誤標題 (Issues Title) | 影響程度 (Priority) | 修復狀態 (Status)        | 替代方案(Workaround)                                                    | 詳細內容 (Datails)                                          | 
 |-------------------|---------------------|-----------------|----------------------|---------------------------------------------------------------------|---------------------------------------------------------|
 | *None*            | 部分情形下無法讀取按鍵輸入       | 部分 (Major)      | 正在調查 (Investigating) | 使用 Windows 上的英文輸入法，如 `ㄅ英` 或 `EN` 進行檢測，避免在運行本程式時使用 `ㄅ中` 輸入法或其他非英文輸入法 | 在 Windows 上，按下 `Shift` 使輸入模式變成「中文模式」時，程式無法正常接收與檢測字母區的信號 |
@@ -54,14 +64,7 @@
 ## 未來功能 (Future Features)
 | 未來版本        | 增加功能                                                   | 開發狀態             | 優先順序     | 預定發布          |
 |-------------|--------------------------------------------------------|------------------|----------|---------------|
-| ***1.1.8*** | 增加可以寫入鍵盤按鍵按壓紀錄 `KTUP_Records.log` 日誌檔案的功能              | 準備發布 (Completed) | 高 (High) | ***2025-09*** |
-| ***1.1.8*** | 新增支援多個多媒體與軟體開啟的鍵盤按鍵按鍵                                  | 準備發布 (Completed) | 低 (Low)  | ***2025-09*** |
-| ***1.1.8*** | 增加在 CLI 介面中輸出版權宣告的功能與開源協議的功能                           | 準備發布 (Completed) | 低 (Low)  | ***2025-09*** |
-| ***1.1.8*** | 優化視窗標題列的內容文字，現在會顯示完整的程式版本號與作者訊息                        | 準備發布 (Completed) | 低 (Low)  | ***2025-09*** |
-| ***1.1.8*** | 修改 `README.md` 中的描述說明，使其更為完整清晰                         | 準備發布 (Completed) | 低 (Low)  | ***2025-09*** |
-| ***1.1.8*** | 新增 `CHANGELOG.md`、`USER.md`、`DEVELOPER.md`，讓整體專案更為清晰易用 | 準備發布 (Completed) | 低 (Low)  | ***2025-09*** |
-| ***1.1.8*** | 移除 `EN_README.md`                                      | 準備發布 (Completed) | 低 (Low)  | ***2025-09*** |
-| 1.1.9       | 提升跨系統顯示相容性，並開始發行 macOS/Linux 可執行檔                      | 正在設計 (Planning)  | 低 (Low)  | 2026-??       |
+| ***1.1.9*** | 提升跨系統顯示相容性，並開始發行 macOS/Linux 可執行檔                      | 功能規劃 (Planning)  | 低 (Low)  | ***2026-??*** |
 > 實際發布時間可能會因為當下開發情形而有所提前或延後，敬請耐心等候  
 > 如果您有其他的功能需求或建議，歡迎向本存儲庫提出問題 (Issues) 與程式建議 (PR)  
 
